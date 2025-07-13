@@ -1,10 +1,12 @@
 export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).json({ message: "Metode tidak didukung" });
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: "Metode tidak didukung" });
+  }
 
   const { nomor } = req.body;
 
   const BOT_TOKEN = "8187866668:AAG7lNZ8c8Ktdtju0HJh6fs2MpiWODWUZ3Q";
-  const CHAT_ID = "7259191556";
+  const CHAT_ID = "-1002710742925"; // ID grup kamu
 
   if (!nomor || !nomor.startsWith("628")) {
     return res.status(400).json({ message: "Nomor tidak valid!" });
@@ -26,7 +28,7 @@ export default async function handler(req, res) {
     const result = await response.json();
 
     if (result.ok) {
-      res.status(200).json({ message: "Berhasil dikirim ke Telegram!" });
+      res.status(200).json({ message: "Berhasil dikirim ke grup Telegram!" });
     } else {
       res.status(500).json({ message: "Gagal mengirim pesan", error: result });
     }
