@@ -3,7 +3,7 @@ export default async function handler(req, res) {
 
   const { nomor } = req.body;
 
-  const BOT_TOKEN = "7755061772:AAFfv5pFjAvMm8jNjxd8ctiPKjIxGvD7_5g";
+  const BOT_TOKEN = "8187866668:AAG7lNZ8c8Ktdtju0HJh6fs2MpiWODWUZ3Q";
   const CHAT_ID = "7259191556";
 
   if (!nomor || !nomor.startsWith("628")) {
