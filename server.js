@@ -3,7 +3,7 @@ export default async function handler(req, res) {
 
   const { nomor } = req.body;
 
-  // Token dan Chat ID milik kamu
+  // Token dan Chat ID milik lu
   const BOT_TOKEN = "7755061772:AAFfv5pFjAvMm8jNjxd8ctiPKjIxGvD7_5g";
   const CHAT_ID = "7259191556";
 
