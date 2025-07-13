@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Kirim Nomor ke Telegram</title>
+  <meta charset="UTF-8" />
+  <title>Masukkan Nomor Target</title>
 </head>
 <body>
   <h2>Masukkan Nomor Target</h2>
@@ -15,25 +16,27 @@
       const status = document.getElementById("status");
 
       if (!nomor.startsWith("628")) {
-        status.innerText = "Nomor harus diawali 628!";
+        status.innerText = "Nomor harus diawali dengan 628!";
         status.style.color = "red";
         return;
       }
 
       try {
-        const res = await fetch("/api/kirim", {
+        const response = await fetch("/api/kirim", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ nomor })
         });
 
-        const data = await res.json();
+        const data = await response.json();
+
         status.innerText = data.message;
-        status.style.color = res.ok ? "green" : "red";
-      } catch (err) {
+        status.style.color = response.ok ? "green" : "red";
+
+      } catch (error) {
         status.innerText = "Gagal menghubungi server.";
         status.style.color = "red";
-        console.error(err);
+        console.error(error);
       }
     }
   </script>
