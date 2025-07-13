@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kirim ke Telegram</title>
+  <title>Kirim Nomor ke Telegram</title>
 </head>
 <body>
   <h2>Masukkan Nomor Target</h2>
@@ -21,7 +21,7 @@
       }
 
       try {
-        const res = await fetch("/kirim", {
+        const res = await fetch("/api/kirim", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ nomor })
